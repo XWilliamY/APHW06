@@ -43,6 +43,7 @@ public class SuperArray{
 	}
     }
 
+    //overloaded add 
     public void add(int index, Object o){
 	//if it's out of range, use the basic add function
 	if(index < 0 || index >= size()){
@@ -63,14 +64,8 @@ public class SuperArray{
 		oldData[i] = data[i];
 	    } 
 	    oldData[index] = o;
-	    cNe ++; // since we added a new element
-	//How many more elements from old data do we have left to add?
-	    //total = six, have three left, three already 
-	    //total = five, have two left, three already
-	    //more elements = cNe - (index + 1)
-	    // starting from? index 
+	    cNe ++; 
 	    for(int i = index; i <= cNe - 2; i++){
-		//starting from 2, goes up to 6-(2+1), three; i++
 		oldData[i+1] = data[i]; 
 	    }
 	}
@@ -111,15 +106,17 @@ public class SuperArray{
 	}
     }
 
-    public void set(int index, Object e){
-	if(index < cNe){
-	    data[index] = e;
-	    System.out.println("Passes here");
+    //overloaded set 
+    public Object set(int index, Object o){
+	Object A;
+	if(index < 0  || index >= size()){
+	    System.out.println("ERROR: Index out of range");
+	    return null;
 	}
 	else{
-	    data[cNe] = e;
-	    System.out.println("Passes here");
+	    A = get(index);
+	    data[index] = o;
 	}
+	return A;
     }
-
 }
