@@ -1,5 +1,6 @@
 public class SuperArray{
     private Object[]data;
+    private Object[]oldData;
     private int cNe, capacity; // current number of elements 
 
     public SuperArray(){
@@ -24,12 +25,21 @@ public class SuperArray{
     }
 
     public void add(Object e){
-	if(cNe < capacity){ //you can put in things as long as you don't exceed
-	    data[cNe] = e;
+	if(cNe < capacity){ //if we didn't meet the capacity yet
+	    data[cNe] = e; //add at 0, 1, 2, up to capacity - 1
 	    cNe += 1;
 	}
 	else{
-	    System.out.println("You have exceeded the SuperArray's size.");
+	    capacity += 1; //increase capacity 
+	    // need to make a new data array with one more space at the end
+	    oldData = new Object[capacity];
+	    for(int i = 0; i < cNe; i++){
+		oldData[i] = data[i];
+	    }
+	    oldData[cNe] = e;
+	    data = new Object[capacity];
+	    data = oldData;
+	    cNe ++;
 	}
     }
 
@@ -38,7 +48,8 @@ public class SuperArray{
     }
 
     public void resize(int newCapacity){
-	Object[] oldData = data;// copy all values 
+	oldData = new Object[newCapacity];// copy all values 
+	System.out.println(oldData.toString());
 	data = new Object[newCapacity]; // make new one with new capacity
 	if(newCapacity < cNe){
 	    cNe = newCapacity; //change only if the new size is smaller
@@ -55,7 +66,13 @@ public class SuperArray{
     }
 
     public Object get(int index){
+	if(index < 0 || index >= size()){
+	    System.out.println("ERROR: Index out of range.");
+	    return null;
+	}
+	else{
         return data[index];
+	}
     }
 
     public void set(int index, Object e){
