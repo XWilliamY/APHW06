@@ -80,15 +80,12 @@ public class SuperArray{
 
     public void resize(int newCapacity){
 	oldData = new Object[newCapacity];// copy all values 
-	System.out.println(oldData.toString());
-	data = new Object[newCapacity]; // make new one with new capacity
-	if(newCapacity < cNe){
-	    cNe = newCapacity; //change only if the new size is smaller
+	for(int i = 0; i < cNe; i++){
+	    oldData[i] = data[i];
 	}
-	for(int i = 0; i< cNe; i++){
-	    //move from oldData to new data
-	    data[i] = oldData[i];
-	}
+	data = new Object[newCapacity];
+	data = oldData;
+	capacity = newCapacity;
     }
 
     public void clear(){
