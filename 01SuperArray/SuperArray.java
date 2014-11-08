@@ -34,14 +34,50 @@ public class SuperArray{
 	    // need to make a new data array with one more space at the end
 	    oldData = new Object[capacity];
 	    for(int i = 0; i < cNe; i++){
-		oldData[i] = data[i];
+		oldData[i] = data[i]; //transfer all the data to new array
 	    }
-	    oldData[cNe] = e;
-	    data = new Object[capacity];
-	    data = oldData;
+	    oldData[cNe] = e; //add the new element
+	    data = new Object[capacity]; //reset data array
+	    data = oldData; //transfer back to data
 	    cNe ++;
 	}
     }
+
+    public void add(int index, Object o){
+	//if it's out of range, use the basic add function
+	if(index < 0 || index >= size()){
+	    add(o);
+	}
+	else{
+	    if(cNe + 1 <= capacity){
+		oldData = new Object[capacity]; //no need to increase size
+	    }
+	    else{
+		capacity ++;
+		oldData = new Object[capacity];
+	    }
+
+	//otherwise we'll inject it into the array at the index
+	    // increase capacity if you can't add another element
+	    for(int i = 0; i < index; i++){
+		oldData[i] = data[i];
+	    } 
+	    oldData[index] = o;
+	    cNe ++; // since we added a new element
+	//How many more elements from old data do we have left to add?
+	    //total = six, have three left, three already 
+	    //total = five, have two left, three already
+	    //more elements = cNe - (index + 1)
+	    // starting from? index 
+	    for(int i = index; i <= cNe - 2; i++){
+		//starting from 2, goes up to 6-(2+1), three; i++
+		oldData[i+1] = data[i]; 
+	    }
+	}
+	data = new Object[capacity];
+	data = oldData;
+    }
+
 
     public int size(){
 	return cNe;
