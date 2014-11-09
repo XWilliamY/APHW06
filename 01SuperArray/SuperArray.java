@@ -74,6 +74,30 @@ public class SuperArray{
     }
 
 
+    public Object remove(int index){
+	Object B;
+	if(index < 0  || index >= size()){
+	    System.out.println("ERROR: Index out of range");
+	    return null;
+	}
+	else{
+	    // remove that element, move everything to the left 
+	    oldData = new Object[capacity];
+	    for(int i = 0; i < index; i++){
+		oldData[i] = data[i]; // transfer from one to the other
+	    }
+	    //now we want to skip whatever's at the index
+	    cNe --;
+	    B = data[index];
+	    for(int i = index +1; i < cNe; i++){
+		oldData[i+1] = data[i];
+	    }
+	}
+	data = new Object[capacity];
+	data = oldData;
+	return B;
+    }
+
     public int size(){
 	return cNe;
     }
