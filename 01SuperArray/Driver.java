@@ -25,5 +25,14 @@ public class Driver{
 	System.out.println(A.toString());
 	A.clear();
 	System.out.println(A.toString());
+	B.add(a);
+	B.add(b);
+	B.add("three");
+	B.remove(4);
+	B.remove(3);
+	B.remove(2);
+	//B.remove(1);
+	System.out.println(B.toString());
+
     }
 }
