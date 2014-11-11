@@ -77,8 +77,7 @@ public class SuperArray{
     public Object remove(int index){
 	Object B;
 	if(index < 0  || index >= size()){
-	    System.out.println("ERROR: Index out of range");
-	    return null;
+	    throw new IndexOutOfBoundsException();
 	}
 	else{
 	    // remove that element, move everything to the left 
@@ -119,8 +118,7 @@ public class SuperArray{
 
     public Object get(int index){
 	if(index < 0 || index >= size()){
-	    System.out.println("ERROR: Index out of range.");
-	    return null;
+	    throw new IndexOutOfBoundsException();
 	}
 	else{
         return data[index];
@@ -131,8 +129,7 @@ public class SuperArray{
     public Object set(int index, Object o){
 	Object A;
 	if(index < 0  || index >= size()){
-	    System.out.println("ERROR: Index out of range");
-	    return null;
+	    throw new IndexOutOfBoundsException();
 	}
 	else{
 	    A = get(index);
