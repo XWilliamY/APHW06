@@ -1,0 +1,10 @@
+public class Collapse{
+    public static void main(String[]args){
+
+    }
+
+    public void collapseDuplicates(ArrayList<Integer> L){
+
+    }
+
+}

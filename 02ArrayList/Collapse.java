@@ -15,6 +15,16 @@ public class Collapse{
 	System.out.println(list.toString());
 	collapseDuplicates(list);
 	System.out.println(list.toString());
+	ArrayList<Integer> list2 = new ArrayList<Integer>();
+	list2.add(new Integer(0));
+	list2.add(new Integer(0));
+	list2.add(new Integer(1));
+	list2.add(new Integer(1));
+	list2.add(new Integer(2));
+	list2.add(new Integer(0));
+	System.out.println(list2.toString());
+	collapseDuplicates(list);
+	System.out.println(list2.toString());
     }
 
     public static void collapseDuplicates(ArrayList<Integer> L){
