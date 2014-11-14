@@ -22,19 +22,30 @@ public class Collapse{
 	list2.add(1);
 	list2.add(2);
 	list2.add(0);
+	ArrayList<Integer> list3 = new ArrayList<Integer>();
+	for(int i = 0; i < 10; i++){
+	    list3.add(10);
+	}
+	list3.add(11);
 	System.out.println(list2.toString());
-	collapseDuplicates(list);
+	collapseDuplicates(list2);
 	System.out.println(list2.toString());
+	System.out.println("list3");
+	System.out.println(list3.toString());
+	collapseDuplicates(list3);
+	System.out.println(list3.toString());
     }
 
     public static void collapseDuplicates(ArrayList<Integer> L){
-	int length = L.size();
-	for(int i = 1; i < length; i++){
+	for(int i = 1; i< L.size(); i++){
 	    if(L.get(i) == L.get(i-1)){
 		L.remove(i-1);
-		System.out.println("It checks out!");
+		i = 0;
 	    }
 	}
+	
+	    //well when you remove a duplicate, i shrinks doesn't it
+	
      
     }
 

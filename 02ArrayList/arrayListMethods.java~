@@ -1,0 +1,18 @@
+import java.util.*;
+
+public class arrayListMethods{
+
+    public static void collapseDuplicates(ArrayList<Integer> L){
+
+    }
+
+    public static void randomize(ArrayList<Integer> L){
+
+    }
+
+
+    public static void main(String[]args){
+
+    }
+
+}
