@@ -19,6 +19,10 @@ public class arrayListMethods{
 	    //i will be our 'oldIndex'
 	    int newIndex = rand.nextInt(L.size());
 	    //we have our new index here 
+	    int oldElement = L.get(i);
+	    int newElement = L.get(newIndex);
+	    L.set(i, newElement);
+	    L.set(newIndex, oldElement);
 	}
     }
 
@@ -33,7 +37,13 @@ public class arrayListMethods{
 	System.out.println(list.toString());
 	collapseDuplicates(list);
 	System.out.println(list.toString());
-	randomize(list);
+	ArrayList<Integer> list2 = new ArrayList<Integer>();
+	list2.add(0);
+	list2.add(1);
+	list2.add(2);
+	list2.add(3);
+	randomize(list2);
+	System.out.println(list2.toString());
     }
 
 }
