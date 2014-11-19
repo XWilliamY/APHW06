@@ -9,6 +9,12 @@ public class WordGrid{
 
     public WordGrid(int rows, int cols){
 	data = new char[rows][cols];
+	for(int i = 0; i<rows;i++){//make a row
+	    for(int a = 0; a<cols;a++){//go through the column
+		data[i][a]='_';
+	    }
+	}
+    
 
 
     }
