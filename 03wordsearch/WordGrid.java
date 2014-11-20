@@ -2,7 +2,7 @@ public class WordGrid{
 
     public static void main(String[]args){
 	WordGrid data;
-	data = new WordGrid(5, 5);
+	data = new WordGrid(10,10);
 	System.out.println(data.toString());
 
     }
@@ -17,19 +17,17 @@ public class WordGrid{
 
     public WordGrid(int rows, int cols){
 	data = new char[rows][cols];
-	for(int i = 0; i<rows;i++){//make a row
-	    for(int a = 0; a<cols;a++){//go through the column
-		data[i][a]='_';
-		System.out.println(a);
-	    }
-	}
-	System.out.println(data.toString());
+	clear();
     }
 
 
     /**Set all values in the WordGrid to spaces ' '*/
     private void clear(){
-
+	for(int i = 0; i< data.length;i++){
+	    for(int a = 0; a<data[i].length;a++){
+		data[i][a] = ' ';
+	    }
+	}
     }
 
     /**The proper formatting for a WordGrid is created in the toString.
@@ -37,10 +35,18 @@ public class WordGrid{
      *separated by newlines.
      */
 
-    //public String toString(){
-    
+    public String toString(){
+	String answer = "";
+	for(int i = 0; i<data.length;i++){
+	    for(int a = 0; a<data[i].length;a++){
+		answer += data[i][a];
+	    }
+	    answer += "\n";
+	}
+	return answer;
 
-    //}
+    }
+
 
     /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from left to right, must fit on the WordGrid, and must
