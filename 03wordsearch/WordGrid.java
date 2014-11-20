@@ -1,4 +1,12 @@
 public class WordGrid{
+
+    public static void main(String[]args){
+	WordGrid data;
+	data = new WordGrid(5, 5);
+	System.out.println(data.toString());
+
+    }
+
     private char[][]data;
 
     /**Initialize the grid to the size specified and fill all of the positions
@@ -12,11 +20,10 @@ public class WordGrid{
 	for(int i = 0; i<rows;i++){//make a row
 	    for(int a = 0; a<cols;a++){//go through the column
 		data[i][a]='_';
+		System.out.println(a);
 	    }
 	}
-    
-
-
+	System.out.println(data.toString());
     }
 
 
@@ -31,7 +38,9 @@ public class WordGrid{
      */
 
     //public String toString(){
-    // }
+    
+
+    //}
 
     /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from left to right, must fit on the WordGrid, and must
