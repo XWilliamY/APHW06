@@ -1,10 +1,11 @@
 public class WordGrid{
 
     public static void main(String[]args){
-	WordGrid data;
+	WordGrid data, what;
 	data = new WordGrid(10,10);
+	what = new WordGrid(5, 5);
 	System.out.println(data.toString());
-
+	System.out.println(what.toString());
     }
 
     private char[][]data;
@@ -25,7 +26,7 @@ public class WordGrid{
     private void clear(){
 	for(int i = 0; i< data.length;i++){
 	    for(int a = 0; a<data[i].length;a++){
-		data[i][a] = ' ';
+		data[i][a] = '_';
 	    }
 	}
     }
