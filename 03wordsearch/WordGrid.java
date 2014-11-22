@@ -9,6 +9,9 @@ public class WordGrid{
 	what.addWordHorizontal("what", 0, 0);
 	what.addWordHorizontal("ate", 0, 2);
 	what.addWordHorizontal("ever", 0, 4);
+	what.addWordVertical("whatever", 0, 0);
+	what.addWordVertical("rig", 7, 0);
+	what.addWordVertical("hello", -1, -10);
 	System.out.println(what.toString());
 	what.clear();
 	System.out.println(what.toString());
@@ -31,7 +34,7 @@ public class WordGrid{
     private void clear(){
 	for(int i = 0; i< data.length;i++){
 	    for(int a = 0; a<data[i].length;a++){
-		data[i][a] = ' ';
+		data[i][a] = '_';
 	    }
 	}
     }
@@ -74,17 +77,46 @@ public class WordGrid{
 	*/
 
 	if(row < data.length && row >= 0){ // is it within the rows permitted by WordGrid?
-	    if(col >= 0 && word.length() < (data[row].length - col)){ // is the word shorter than col?  
+	    if(col >= 0 && word.length() <= (data[row].length - col)){ // is the word shorter than col?  
 		for(int a = 0; a < word.length(); a++){
 		    char LetterOfWord = word.charAt(a);
-		    if(data[row][col] == ' ' || data[row][col] == LetterOfWord){
+		    if(data[row][col] == '_' || data[row][col] == LetterOfWord){
 			data[row][col] = LetterOfWord;
+		    }
+		    else{
+			return false;
 		    }
 		    col ++;
 		}
 	    }
 	    else{
 		return false;
+	    }
+	    return true;
+	}
+	else{
+	    return false;
+	}
+    }
+
+    public boolean addWordVertical(String word, int row, int col){
+	//check that the length of the word doesn't surpass the number of rows there are 
+	//check that the column exists 
+	//check that, if there are any letters already there, that they're the same 
+
+	if(row >= 0 && word.length() <= data.length - row){ // does the word surpass the # of rows?
+	    if(col >= 0 && col < data[0].length){
+
+		for(int a = 0; a < word.length();a++){
+		    char LetterOfWord = word.charAt(a);
+		    if(data[row][col] == '_' || data[row][col] == LetterOfWord){
+			data[row][col] = LetterOfWord;
+		    }
+		    else{
+			return false;
+		    }
+		    row ++;
+		}
 	    }
 	    return true;
 	}
