@@ -7,9 +7,8 @@ public class WordGrid{
 	System.out.println(data.toString());
 	System.out.println(what.toString());
 	what.addWordHorizontal("what", 0, 0);
-	what.addWordHorizontal("what", 0, 1);
-	what.addWordHorizontal("what", 0, 6);
-	what.addWordHorizontal("at", 0, 2);
+	what.addWordHorizontal("ate", 0, 2);
+	what.addWordHorizontal("ever", 0, 4);
 	System.out.println(what.toString());
 	what.clear();
 	System.out.println(what.toString());
@@ -74,8 +73,8 @@ public class WordGrid{
 	   4. Check that, if there are any letters already there, that they're the same
 	*/
 
-	if(row < data.length){ // is it within the rows permitted by WordGrid?
-	    if(word.length() < (data[row].length - col)){ // is the word shorter than col?  
+	if(row < data.length && row >= 0){ // is it within the rows permitted by WordGrid?
+	    if(col >= 0 && word.length() < (data[row].length - col)){ // is the word shorter than col?  
 		for(int a = 0; a < word.length(); a++){
 		    char LetterOfWord = word.charAt(a);
 		    if(data[row][col] == ' ' || data[row][col] == LetterOfWord){
