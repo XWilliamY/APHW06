@@ -6,8 +6,14 @@ public class WordGrid{
 	what = new WordGrid(5, 5);
 	System.out.println(data.toString());
 	System.out.println(what.toString());
+	what.addWordHorizontal("what", 0, 0);
+	what.addWordHorizontal("what", 0, 1);
+	what.addWordHorizontal("what", 0, 6);
+	what.addWordHorizontal("ate", 1, 2);
+	System.out.println(what.toString());
+	what.clear();
+	System.out.println(what.toString());
     }
-
     private char[][]data;
 
     /**Initialize the grid to the size specified and fill all of the positions
@@ -26,7 +32,7 @@ public class WordGrid{
     private void clear(){
 	for(int i = 0; i< data.length;i++){
 	    for(int a = 0; a<data[i].length;a++){
-		data[i][a] = '_';
+		data[i][a] = ' ';
 	    }
 	}
     }
@@ -54,15 +60,40 @@ public class WordGrid{
      *have a corresponding letter to match any letters that it overlaps.
      *
      *@param word is any text to be added to the word grid.
-     *@param row is the vertical locaiton of where you want the word to start.
+     *@param row is the vertical location of where you want the word to start.
      *@param col is the horizontal location of where you want the word to start.
      *@return true when the word is added successfully. When the word doesn't fit,
      *or there are overlapping letters that do not match, then false is returned.
      */
 
-    //public boolean addWordHorizontal(String word,int row, int col){
-    //}
+    public boolean addWordHorizontal(String word, int row, int col){
+	/* So how should we add a word horizontally to WordGrid?
+	   1. Check if the row is out of bounds
+	   2. Check that the col exists
+	   3. Check that the word isn't longer than col
+	   4. Check that, if there are any letters already there, that they're the same
+	*/
 
-    //vertical + diagonal should be implemented as well.
+	if(row < data.length){ // is it within the rows permitted by WordGrid?
+	    if(word.length() < (data[row].length - col)){ // is the word shorter than col?  
+		for(int a = 0; a < word.length(); a++){
+		    char LetterOfWord = word.charAt(a);
+		    if(data[row][col] == ' ' || data[row][col] == LetterOfWord){
+			data[row][col] = LetterOfWord;
+		    }
+		    col ++;
+		}
+	    }
+	    else{
+		return false;
+	    }
+	    return true;
+	}
+	else{
+	    return false;
+	}
+    }
+
+
 
 }
