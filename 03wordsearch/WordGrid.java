@@ -3,13 +3,13 @@ public class WordGrid{
     public static void main(String[]args){
 	WordGrid data, what;
 	data = new WordGrid(10,10);
-	what = new WordGrid(5, 5);
+	what = new WordGrid(10, 10);
 	System.out.println(data.toString());
 	System.out.println(what.toString());
 	what.addWordHorizontal("what", 0, 0);
 	what.addWordHorizontal("what", 0, 1);
 	what.addWordHorizontal("what", 0, 6);
-	what.addWordHorizontal("at", 1, 2);
+	what.addWordHorizontal("at", 0, 2);
 	System.out.println(what.toString());
 	what.clear();
 	System.out.println(what.toString());
