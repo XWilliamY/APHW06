@@ -9,7 +9,7 @@ public class WordGrid{
 	what.addWordHorizontal("what", 0, 0);
 	what.addWordHorizontal("what", 0, 1);
 	what.addWordHorizontal("what", 0, 6);
-	what.addWordHorizontal("ate", 1, 2);
+	what.addWordHorizontal("at", 1, 2);
 	System.out.println(what.toString());
 	what.clear();
 	System.out.println(what.toString());
