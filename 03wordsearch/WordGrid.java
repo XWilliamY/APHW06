@@ -125,6 +125,12 @@ public class WordGrid{
 	}
     }
 
+    public boolean addWordDiagonal(String word, int row, int col){
+	//check that the length of the word doesn't surpass BOTH rows and columns 
+	//check that the rows/ cols arne't out of range 
+	//chec that the letters fall on empty spaces/ letters that are the same
+
+    }
 
 
 }
