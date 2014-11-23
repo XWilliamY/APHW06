@@ -9,21 +9,8 @@ public class read{
 	Scanner scnr = new Scanner(text);
 	ArrayList<String> list = new ArrayList<String>();
 
-	int lineNumber = 1;
-	String answer = "";
-	while(scnr.hasNextLine()){ // while there is another line 
-	    String line = scnr.nextLine();
-	    for(int i = 0; i < line.length(); i++){
-		if(!line.substring(i, i+1).equals(" ")){
-		    answer += line.substring(i, i+1);
-		}
-		else{
-		    break;
-		}
-	    }
-	    list.add(answer);
-	    lineNumber ++;
-	    answer = "";
+	while(scnr.hasNext()){ // while there is another line 
+	    list.add(scnr.next());
 	}
 	System.out.println(list.toString());
     }
