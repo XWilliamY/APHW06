@@ -8,7 +8,6 @@ public class read{
 	File text = new File("readThis.txt");
 	Scanner scnr = new Scanner(text);
 	ArrayList<String> list = new ArrayList<String>();
-
 	while(scnr.hasNext()){ // while there is another line 
 	    list.add(scnr.next());
 	}
