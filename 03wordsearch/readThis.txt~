@@ -1,0 +1,9 @@
+Oops! Nothing was posted because I didn't click "save". 
+
+Update to your word search:
+1. Make a plain text file and fill it with whatever words you like.
+2. Open the file in java, and use a scanner on the file to be able to read in the words.
+3. Read all the words into an ArrayList<String>
+
+Simple file example:
+Blah blah blah. 
