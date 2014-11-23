@@ -12,6 +12,8 @@ public class WordGrid{
 	what.addWordVertical("whatever", 0, 0);
 	what.addWordVertical("rig", 7, 0);
 	what.addWordVertical("hello", -1, -10);
+	what.addWordDiagonal("whatever", 0, 0);
+	WordGrid yes = new WordGrid(20, 20);
 	System.out.println(what.toString());
 	what.clear();
 	System.out.println(what.toString());
@@ -129,8 +131,26 @@ public class WordGrid{
 	//check that the length of the word doesn't surpass BOTH rows and columns 
 	//check that the rows/ cols arne't out of range 
 	//chec that the letters fall on empty spaces/ letters that are the same
-
+	if(row >= 0 && word.length() <= data.length - row){
+	    if(col >= 0 && word.length() <= data[row].length - col){
+		for(int a = 0; a<word.length();a++){
+		    char LetterOfWord = word.charAt(a);
+		    if(data[row][col] == '_' || data[row][col] == LetterOfWord){
+			data[row][col] = LetterOfWord;
+		    }
+		    else{
+			return false;
+		    }
+		row++;
+		col++;
+		}
+	    }
+	    return true;
+	}
+	else{
+	    return false;
+	}
     }
-
-
 }
+
+
