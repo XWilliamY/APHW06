@@ -18,6 +18,9 @@ public class WordGrid{
 	what.clear();
 	System.out.println(what.toString());
 	System.out.println(yes.checkWord("Hello", 0, 0, 1, 0));
+	System.out.println("123456789012345678901".length());
+	System.out.println(yes.checkWord("12345678901234567890123456", 0, 0, 1, 0));
+	System.out.println(yes.toString());
     }
     private char[][]data;
 
@@ -155,10 +158,15 @@ public class WordGrid{
    
     public boolean checkWord(String word, int row, int col, int dx, int dy){
 	//check if movement
-	if(dx!=0 || dy != 0 &&
-	   //kill 2 birds with one stone
-	   0 <= (row+(dy*word.length())) && (row+(dy*word.length())) <= data.length &&
-	   0 <= (col + dx*word.length()) && col + dx*word.length() <= data[0].length
+	if((dx!=0 || dy != 0) &&
+	   //check if index is at least 0 
+	   row >= 0 && col >= 0 && 
+	   //check if row/col + dx/dy * word.length() is at least 0 
+	   row + dy*word.length() >= 0 && 
+	   col + dx*word.length() >= 0 &&
+	   //check if row/col + dx/dy*word.length() fits in a WordGrid
+	   row + dy*word.length() <= data.length &&
+	   col + dx*word.length() <= data[0].length
 	   ){
 	    for(int a = 0; a < word.length();a++){
 		char Letter = word.charAt(a);
@@ -176,8 +184,8 @@ public class WordGrid{
 	}
     }
 
-    public boolean add(String word, int row, int col, int dx, int dy){
-    }
+    //public boolean add(String word, int row, int col, int dx, int dy){
+    //}
 
     
 
