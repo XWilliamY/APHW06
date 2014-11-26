@@ -17,6 +17,7 @@ public class WordGrid{
 	System.out.println(what.toString());
 	what.clear();
 	System.out.println(what.toString());
+	System.out.println(yes.checkWord("Hello", 0, 0, 1, 0));
     }
     private char[][]data;
 
@@ -151,6 +152,36 @@ public class WordGrid{
 	    return false;
 	}
     }
+   
+    public boolean checkWord(String word, int row, int col, int dx, int dy){
+	//check if movement
+	if(dx!=0 || dy != 0 &&
+	   //kill 2 birds with one stone
+	   0 <= (row+(dy*word.length())) && (row+(dy*word.length())) <= data.length &&
+	   0 <= (col + dx*word.length()) && col + dx*word.length() <= data[0].length
+	   ){
+	    for(int a = 0; a < word.length();a++){
+		char Letter = word.charAt(a);
+		if(data[row][col] != Letter && data[row][col] != '_'){
+		    return false;		
+		}
+		row += dy;
+		col += dx;
+	
+	    }
+	    return true;
+	}
+	else{
+	    return false;
+	}
+    }
+
+    public boolean add(String word, int row, int col, int dx, int dy){
+    }
+
+    
+
+
 }
 
 
