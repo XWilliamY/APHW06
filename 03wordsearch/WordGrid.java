@@ -20,6 +20,16 @@ public class WordGrid{
 	System.out.println(yes.checkWord("Hello", 0, 0, 1, 0));
 	System.out.println("123456789012345678901".length());
 	System.out.println(yes.checkWord("12345678901234567890123456", 0, 0, 1, 0));
+	System.out.println(yes.checkWord("hello", 0, 0, -1, -1));
+	System.out.println(yes.checkWord("hello", 0, 0, -1, 0));
+	System.out.println(yes.checkWord("hello", 0, 0, 0, -1));
+	System.out.println(yes.checkWord("hello", 20, 20, -1, -1));
+	System.out.println(yes.checkWord("hello", 19, 19, -1, -1));
+	System.out.println(yes.checkWord("hello", 19, 19, 1, 1));
+	System.out.println(yes.checkWord("hello", 19, 19, 0, 1));
+	System.out.println(yes.checkWord("hello", 19, 19, 0, -1));
+	System.out.println(yes.checkWord("hello", 19, 19, -1, 0));
+	System.out.println(yes.checkWord("1234567890", 10, 10, 0, 0));
 	System.out.println(yes.toString());
     }
     private char[][]data;
@@ -161,6 +171,8 @@ public class WordGrid{
 	if((dx!=0 || dy != 0) &&
 	   //check if index is at least 0 
 	   row >= 0 && col >= 0 && 
+	   //check if index isn't exactly data.length
+	   row != data.length && col != data[0].length &&
 	   //check if row/col + dx/dy * word.length() is at least 0 
 	   row + dy*word.length() >= 0 && 
 	   col + dx*word.length() >= 0 &&
