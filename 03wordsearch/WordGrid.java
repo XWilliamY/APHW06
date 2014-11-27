@@ -17,19 +17,13 @@ public class WordGrid{
 	System.out.println(what.toString());
 	what.clear();
 	System.out.println(what.toString());
-	System.out.println(yes.checkWord("Hello", 0, 0, 1, 0));
-	System.out.println("123456789012345678901".length());
-	System.out.println(yes.checkWord("12345678901234567890123456", 0, 0, 1, 0));
-	System.out.println(yes.checkWord("hello", 0, 0, -1, -1));
-	System.out.println(yes.checkWord("hello", 0, 0, -1, 0));
-	System.out.println(yes.checkWord("hello", 0, 0, 0, -1));
-	System.out.println(yes.checkWord("hello", 20, 20, -1, -1));
-	System.out.println(yes.checkWord("hello", 19, 19, -1, -1));
-	System.out.println(yes.checkWord("hello", 19, 19, 1, 1));
-	System.out.println(yes.checkWord("hello", 19, 19, 0, 1));
-	System.out.println(yes.checkWord("hello", 19, 19, 0, -1));
-	System.out.println(yes.checkWord("hello", 19, 19, -1, 0));
-	System.out.println(yes.checkWord("1234567890", 10, 10, 0, 0));
+	System.out.println(yes.add("hello", 0, 0, 1, 0));
+	System.out.println(yes.add("paper", 19, 19, -1, 0));
+	System.out.println(yes.add("water", 10, 10, 1, 1));
+	System.out.println(yes.add("whatever", 10, 10, -1, 1));
+	System.out.println(yes.add("wonderful", 10, 10, 0, 1));
+	System.out.println(yes.add("wow", 10, 10, 1, 0));
+	System.out.println(yes.add("what", 10, 10, 0, -1));
 	System.out.println(yes.toString());
     }
     private char[][]data;
@@ -196,12 +190,23 @@ public class WordGrid{
 	}
     }
 
-    //public boolean add(String word, int row, int col, int dx, int dy){
-    //}
+    public boolean add(String word, int row, int col, int dx, int dy){
+	if(checkWord(word, row, col, dx, dy)){
+	    for(int a = 0; a < word.length();a++){
+		char Letter = word.charAt(a);
+		if(data[row][col] == Letter || data[row][col] == '_'){
+		    data[row][col] = Letter;
+		}
+		row += dy;
+		col += dx;
+	    }
+	    return true;
+	}
+	else{
+	    return false;
+	}
 
-    
-
-
+    }	    
 }
 
 
