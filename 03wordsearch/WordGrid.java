@@ -1,31 +1,31 @@
+import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+
 public class WordGrid{
 
-    public static void main(String[]args){
+    public static void main(String[]args)throws FileNotFoundException{
 	WordGrid data, what;
-	data = new WordGrid(10,10);
+	data = new WordGrid(20,20);
 	what = new WordGrid(10, 10);
+	File text = new File("readThis.txt");
+	Scanner sc = new Scanner(text);
+	ArrayList<String> list = new ArrayList<String>();
+	while(sc.hasNext()){
+	    list.add(sc.next());
+	}
+	//making a random 
+	Random rand = new Random();
+	System.out.println(list.toString());
+	for(int i = 0; i < 20, i++){
+	    int Rol = rand.nextInt();
+
+	    data.add();
 	System.out.println(data.toString());
-	System.out.println(what.toString());
-	what.addWordHorizontal("what", 0, 0);
-	what.addWordHorizontal("ate", 0, 2);
-	what.addWordHorizontal("ever", 0, 4);
-	what.addWordVertical("whatever", 0, 0);
-	what.addWordVertical("rig", 7, 0);
-	what.addWordVertical("hello", -1, -10);
-	what.addWordDiagonal("whatever", 0, 0);
-	WordGrid yes = new WordGrid(20, 20);
-	System.out.println(what.toString());
-	what.clear();
-	System.out.println(what.toString());
-	System.out.println(yes.add("hello", 0, 0, 1, 0));
-	System.out.println(yes.add("paper", 19, 19, -1, 0));
-	System.out.println(yes.add("water", 10, 10, 1, 1));
-	System.out.println(yes.add("whatever", 10, 10, -1, 1));
-	System.out.println(yes.add("wonderful", 10, 10, 0, 1));
-	System.out.println(yes.add("wow", 10, 10, 1, 0));
-	System.out.println(yes.add("what", 10, 10, 0, -1));
-	System.out.println(yes.toString());
-    }
+    }	
+
+    
     private char[][]data;
 
     /**Initialize the grid to the size specified and fill all of the positions
