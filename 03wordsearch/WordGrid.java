@@ -13,12 +13,13 @@ public class WordGrid{
 	//making a random 
 	Random rand = new Random();
 	System.out.println(data.toString());
-	data.loadWordsFromFile("readThis.txt", true);
+	System.out.println(data.wordsInPuzzle());
     }	
 
     
     private char[][]data;
-    private String wordsUsed = "";
+    private ArrayList<String> wordsUsed = new ArrayList<String>();
+    private String theWords = "";
 
     /**Initialize the grid to the size specified and fill all of the positions
      *with spaces.
@@ -207,7 +208,6 @@ public class WordGrid{
 	while(sc.hasNext()){
 	    list.add(sc.next());
 	}
-	
 	for(int i = 0; i < 20;){
 	    int Rol = rand.nextInt(data.length);
 	    int Col = rand.nextInt(data[0].length);
@@ -215,10 +215,12 @@ public class WordGrid{
 	    int Dy = rand.nextInt(3) - 1;
 	    int where = rand.nextInt(list.size());
 	    if(add(list.get(where), Rol, Col, Dx, Dy)){
-		wordsUsed += (list.get(where))+ " ";
+		wordsUsed.add(list.get(where));
+		list.remove(list.get(where));
 		i++;
 	    }    
 	}
+
 	if(fillRandomLetters){
 	    for(int a = 0; a < data.length; a++){
 		for(int b = 0; b <data.length;b++){
@@ -229,10 +231,22 @@ public class WordGrid{
 	    }
 	}
 	//edit the following to add wordsInPuzzle()
-	System.out.println(wordsUsed);
+	System.out.println(wordsUsed.toString());
     }
+
+    public String wordsInPuzzle(){
+	for(int i = 0; i < wordsUsed.size(); i++){
+	    for(int a = 0; a < 5; a++){
+		theWords += wordsUsed.get(i) + "   ";
+	    }
+	    theWords += "\n";
+	}
+	return theWords;
+    }
+
+
 }
 
-
+ 
  
 
