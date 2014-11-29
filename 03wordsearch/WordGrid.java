@@ -12,14 +12,14 @@ public class WordGrid{
 	data.loadWordsFromFile("readThis.txt", true);
 	//making a random 
 	Random rand = new Random();
-	System.out.println(data.toString());
 	System.out.println(data.wordsInPuzzle());
+	System.out.println(data.toString());
     }	
 
     
     private char[][]data;
     private ArrayList<String> wordsUsed = new ArrayList<String>();
-    private String theWords = "";
+    private String theWords = "\nFind these words: \n";
 
     /**Initialize the grid to the size specified and fill all of the positions
      *with spaces.
@@ -230,16 +230,14 @@ public class WordGrid{
 		}
 	    }
 	}
-	//edit the following to add wordsInPuzzle()
-	System.out.println(wordsUsed.toString());
     }
 
     public String wordsInPuzzle(){
 	for(int i = 0; i < wordsUsed.size(); i++){
-	    for(int a = 0; a < 5; a++){
-		theWords += wordsUsed.get(i) + "   ";
+	    theWords += wordsUsed.get(i) + "   ";
+	    if((i+1)%5 == 0){
+		theWords += "\n";
 	    }
-	    theWords += "\n";
 	}
 	return theWords;
     }
