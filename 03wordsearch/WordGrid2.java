@@ -7,6 +7,7 @@ public class WordGrid2{
     private char[][]data;
     private ArrayList<String> wordsUsed = new ArrayList<String>();
     private String theWords = "\nFind these words: \n";
+    Random rand = new Random();
 
     public WordGrid2(int rows, int cols){
 	data = new char[rows][cols];
@@ -82,7 +83,6 @@ public class WordGrid2{
 
 
     public void loadWordsFromFile(String fileName, boolean fillRandomLetters)throws FileNotFoundException{
-	Random rand = new Random();
 	File text = new File(fileName);
 	Scanner sc = new Scanner(text);
 	ArrayList<String> list = new ArrayList<String>();
@@ -132,5 +132,8 @@ public class WordGrid2{
 	return theWords;
     }
 
+    public void setSeed(long seed){
+	rand = new Random(seed);
+    }
 
 }
