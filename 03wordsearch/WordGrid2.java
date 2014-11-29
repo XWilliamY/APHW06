@@ -90,7 +90,7 @@ public class WordGrid2{
 	    list.add(sc.next().toLowerCase());
 	}
 	int maxWords = 0;
-	for(int i = 0; i < 20;){
+	for(int i = 0; i < 30;){
 	    int Rol = rand.nextInt(data.length);
 	    int Col = rand.nextInt(data[0].length);
 	    int Dx = rand.nextInt(3) - 1;
