@@ -217,6 +217,16 @@ public class WordGrid{
 		wordsUsed += (list.get(where))+ " ";
 	    }    
 	}
+	if(fillRandomLetters){
+	    for(int a = 0; a < data.length; a++){
+		for(int b = 0; b <data.length;b++){
+		    if(data[a][b] == '_'){
+			data[a][b] = 'a';
+		    }
+		}
+	    }
+	}
+		
 	System.out.println(wordsUsed);
     }
 }
