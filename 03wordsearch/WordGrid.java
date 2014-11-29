@@ -11,7 +11,7 @@ public class WordGrid{
 	what = new WordGrid(10, 10);
 	data.loadWordsFromFile("readThis.txt", true);
 	//making a random 
-	Random rand = new Random();	
+	Random rand = new Random();
 	System.out.println(data.toString());
 	data.loadWordsFromFile("readThis.txt", true);
     }	
@@ -213,14 +213,14 @@ public class WordGrid{
 	    int Dx = rand.nextInt(3) - 1;
 	    int Dy = rand.nextInt(3) - 1;
 	    int where = rand.nextInt(list.size());
-	    data.add(list.get(where), Rol, Col, Dx, Dy);
-	
-	    /* if(data.add(list.get(where), Rol, Col, Dx, Dy)){
-	       wordsUsed += (list.get(where))+ " ";*/
+	    if(add(list.get(where), Rol, Col, Dx, Dy)){
+		wordsUsed += (list.get(where))+ " ";
+	    }    
 	}
-    
+	System.out.println(wordsUsed);
     }
-   
 }
 
+
+ 
 
