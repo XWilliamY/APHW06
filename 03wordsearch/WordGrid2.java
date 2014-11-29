@@ -6,7 +6,7 @@ public class WordGrid2{
     public static void main(String[]args)throws FileNotFoundException{
 	WordGrid2 what;
 	what = new WordGrid2(30, 30);
-	what.loadWordsFromFile("readThis.txt", true);
+	what.loadWordsFromFile("readThis.txt", false);
 	System.out.println(what.wordsInPuzzle());
 	System.out.println(what.toString());
     }
@@ -114,6 +114,15 @@ public class WordGrid2{
 		for(int b = 0; b <data.length;b++){
 		    if(data[a][b] == ' '){
 			data[a][b] = (char)(rand.nextInt(26) + 'a');
+		    }
+		}
+	    }
+	}
+	else{
+	    for(int a = 0; a < data.length;a++){
+		for(int b = 0; b < data.length; b++){
+		    if(data[a][b] == ' '){
+			data[a][b] = '_';
 		    }
 		}
 	    }
