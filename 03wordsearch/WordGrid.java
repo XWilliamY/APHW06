@@ -9,32 +9,16 @@ public class WordGrid{
 	WordGrid data, what;
 	data = new WordGrid(20,20);
 	what = new WordGrid(10, 10);
-	File text = new File("readThis.txt");
-	Scanner sc = new Scanner(text);
-	ArrayList<String> list = new ArrayList<String>();
-	while(sc.hasNext()){
-	    list.add(sc.next());
-	}
+	data.loadWordsFromFile("readThis.txt", true);
 	//making a random 
-	Random rand = new Random();
-	System.out.println(list.toString());
-	String answer = "";
-	for(int i = 0; i < 30; i++){
-	    int Rol = rand.nextInt(20);
-	    int Col = rand.nextInt(20);
-	    int Dx = rand.nextInt(3) - 1;
-	    int Dy = rand.nextInt(3) - 1;
-	    int where = rand.nextInt(20);
-	    if(data.add(list.get(where), Rol, Col, Dx, Dy)){
-		answer += (list.get(where))+ " ";
-	    }
-	}
-	System.out.println(answer);
+	Random rand = new Random();	
 	System.out.println(data.toString());
+	data.loadWordsFromFile("readThis.txt", true);
     }	
 
     
     private char[][]data;
+    private String wordsUsed;
 
     /**Initialize the grid to the size specified and fill all of the positions
      *with spaces.
@@ -213,8 +197,30 @@ public class WordGrid{
 	else{
 	    return false;
 	}
+    }
 
-    }	    
+    public void loadWordsFromFile(String fileName, boolean fillRandomLetters)throws FileNotFoundException{
+	Random rand = new Random();
+	File text = new File(fileName);
+	Scanner sc = new Scanner(text);
+	ArrayList<String> list = new ArrayList<String>();
+	while(sc.hasNext()){
+	    list.add(sc.next());
+	}
+	for(int i = 0; i < 30; i++){
+	    int Rol = rand.nextInt(data.length);
+	    int Col = rand.nextInt(data[0].length);
+	    int Dx = rand.nextInt(3) - 1;
+	    int Dy = rand.nextInt(3) - 1;
+	    int where = rand.nextInt(list.size());
+	    data.add(list.get(where), Rol, Col, Dx, Dy);
+	
+	    /* if(data.add(list.get(where), Rol, Col, Dx, Dy)){
+	       wordsUsed += (list.get(where))+ " ";*/
+	}
+    
+    }
+   
 }
 
 
