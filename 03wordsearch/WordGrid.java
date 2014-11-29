@@ -18,16 +18,18 @@ public class WordGrid{
 	//making a random 
 	Random rand = new Random();
 	System.out.println(list.toString());
-
-	for(int i = 0; i < 20; i++){
+	String answer = "";
+	for(int i = 0; i < 30; i++){
 	    int Rol = rand.nextInt(20);
 	    int Col = rand.nextInt(20);
 	    int Dx = rand.nextInt(3) - 1;
 	    int Dy = rand.nextInt(3) - 1;
 	    int where = rand.nextInt(20);
-	    data.add(list.get(where), Rol, Col, Dx, Dy);
+	    if(data.add(list.get(where), Rol, Col, Dx, Dy)){
+		answer += (list.get(where))+ " ";
+	    }
 	}
-
+	System.out.println(answer);
 	System.out.println(data.toString());
     }	
 
