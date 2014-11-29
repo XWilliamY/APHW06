@@ -3,13 +3,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class WordGrid2{
-    public static void main(String[]args)throws FileNotFoundException{
-	WordGrid2 what;
-	what = new WordGrid2(30, 30);
-	what.loadWordsFromFile("readThis.txt", false);
-	System.out.println(what.wordsInPuzzle());
-	System.out.println(what.toString());
-    }
 
     private char[][]data;
     private ArrayList<String> wordsUsed = new ArrayList<String>();
@@ -96,7 +89,7 @@ public class WordGrid2{
 	while(sc.hasNext()){
 	    list.add(sc.next());
 	}
-	for(int i = 0; i < 20;){
+	for(int i = 0; i < 30;){
 	    int Rol = rand.nextInt(data.length);
 	    int Col = rand.nextInt(data[0].length);
 	    int Dx = rand.nextInt(3) - 1;
