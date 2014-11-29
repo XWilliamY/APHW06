@@ -18,7 +18,7 @@ public class WordGrid{
 
     
     private char[][]data;
-    private String wordsUsed;
+    private String wordsUsed = "";
 
     /**Initialize the grid to the size specified and fill all of the positions
      *with spaces.
@@ -207,7 +207,8 @@ public class WordGrid{
 	while(sc.hasNext()){
 	    list.add(sc.next());
 	}
-	for(int i = 0; i < 30; i++){
+	
+	for(int i = 0; i < 20;){
 	    int Rol = rand.nextInt(data.length);
 	    int Col = rand.nextInt(data[0].length);
 	    int Dx = rand.nextInt(3) - 1;
@@ -215,18 +216,19 @@ public class WordGrid{
 	    int where = rand.nextInt(list.size());
 	    if(add(list.get(where), Rol, Col, Dx, Dy)){
 		wordsUsed += (list.get(where))+ " ";
+		i++;
 	    }    
 	}
 	if(fillRandomLetters){
 	    for(int a = 0; a < data.length; a++){
 		for(int b = 0; b <data.length;b++){
 		    if(data[a][b] == '_'){
-			data[a][b] = 'a';
+			data[a][b] = (char)(rand.nextInt(26) + 'a');
 		    }
 		}
 	    }
 	}
-		
+	//edit the following to add wordsInPuzzle()
 	System.out.println(wordsUsed);
     }
 }
