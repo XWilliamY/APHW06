@@ -7,18 +7,15 @@ public class Driver{
 
     public static void main(String[]args)throws FileNotFoundException{
 	if(args.length >= 2){
-	    System.out.println("Nice job!");
+	    int rows = Integer.parseInt(args[0]);
+	    int cols = Integer.parseInt(args[1]);
 	    if(args.length == 2){ //if they don't give a randomseed and cheat number 
-		int rows = Integer.parseInt(args[0]);
-		int cols = Integer.parseInt(args[1]);
 		WordGrid2 w = new WordGrid2(rows, cols);
 		w.loadWordsFromFile("readThis.txt", true);
 		System.out.println(w.wordsInPuzzle());
 		System.out.println(w.toString());
 	    }
-	    else if(args.length ==3){
-		int rows = Integer.parseInt(args[0]);
-		int cols = Integer.parseInt(args[1]);
+	    else if(args.length==3){
 		int seed = Integer.parseInt(args[2]);
 		WordGrid2 w = new WordGrid2(rows, cols);
 		w.setSeed(seed);
@@ -27,8 +24,6 @@ public class Driver{
 		System.out.println(w.toString());
 	    }
 	    else if(args.length == 4){
-		int rows = Integer.parseInt(args[0]);
-		int cols = Integer.parseInt(args[1]);
 		int seed = Integer.parseInt(args[2]);
 		int answer = Integer.parseInt(args[3]);
 		WordGrid2 w = new WordGrid2(rows, cols);
