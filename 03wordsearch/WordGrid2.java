@@ -87,9 +87,10 @@ public class WordGrid2{
 	Scanner sc = new Scanner(text);
 	ArrayList<String> list = new ArrayList<String>();
 	while(sc.hasNext()){
-	    list.add(sc.next());
+	    list.add(sc.next().toLowerCase());
 	}
-	for(int i = 0; i < 11;){
+	int stopHere = 0;
+	for(int i = 0; i < data.length;){
 	    int Rol = rand.nextInt(data.length);
 	    int Col = rand.nextInt(data[0].length);
 	    int Dx = rand.nextInt(3) - 1;
@@ -99,7 +100,7 @@ public class WordGrid2{
 		wordsUsed.add(list.get(where));
 		list.remove(list.get(where));
 		i++;
-	    }    
+	    }  
 	}
 
 	if(fillRandomLetters){
