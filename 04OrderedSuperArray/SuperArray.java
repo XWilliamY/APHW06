@@ -19,6 +19,10 @@ public class SuperArray{
 	return cNe;
     }
 
+    public Object[] getdata(){
+	return data;
+    }
+
     public String toString(){
 	String answer = "[";
 	for(int i = 0; i < cNe;i++){ // stops once we added all elements
