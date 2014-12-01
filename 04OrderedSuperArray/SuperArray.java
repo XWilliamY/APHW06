@@ -15,6 +15,10 @@ public class SuperArray{
 	this.capacity = capacity;
     }
 
+    public int getcNe(){
+	return cNe;
+    }
+
     public String toString(){
 	String answer = "[";
 	for(int i = 0; i < cNe;i++){ // stops once we added all elements
