@@ -62,4 +62,18 @@ public class OrderedSuperArray extends SuperArray{
     //even better would be this:
     //add if size = 0
     //otherwise, add(i, o), so you don't actually have to swap things around and what not 
+
+    public void add(String e){
+	//if this is the first thing we're adding to a list 
+	if(data.size() == 0){
+	    add(e);
+	}
+	else{ //so we're inserting another element, deciding first where it should go, and then add(index, object) afterwards 
+	    //to do so, we want to find the "largest" word smaller than X
+	    //and the "smallest" word larger than X 
+	    //first loop through the list 
+
+
+
+
 }
