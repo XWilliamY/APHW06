@@ -40,17 +40,22 @@ public class OrderedSuperArray extends SuperArray{
 		}
 		break;
 	    }
-	    else if(super.charAt(0) != e.charAt(0)){ 
-		//calling this boolean if they're not equal 
-		//and the first letter isn't the same (this is not for apple, applesauce)
-		if(e.charAt(0) > super.charAt(0)){ // if the new word belongs later 
-		    //oh god this loop can go forever 
+	    //if the words aren't the same, they're either of the same sizes, or 
+	    //one is larger than the other 
+	    //we now want to find the "largest" word that is smaller than the target word
+	    //and the "smallest" word that is larger than the target word 
+	    if(e.length() == ((String)(super.get(i))).length()){
+		for(int b = 0; b < e.length(); b++){
+		    if( e.charAt(b) >(String)(super.get(i)).charAt(b)){
+			wordBefore = b;
+		    }
+		    else if(e.charAt(b) < (String)(super.get(i)).charAt(b)){
+			wordAfter = b;
+		    }
 		}
 	    }
+	    System.out.println(wordBefore);
+	    System.out.println(wordAfter);
 	}
     }
-
-
-
-
 }
