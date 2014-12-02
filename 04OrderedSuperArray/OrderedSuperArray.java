@@ -58,4 +58,8 @@ public class OrderedSuperArray extends SuperArray{
 	    System.out.println(wordAfter);
 	}
     }
+
+    //even better would be this:
+    //add if size = 0
+    //otherwise, add(i, o), so you don't actually have to swap things around and what not 
 }
