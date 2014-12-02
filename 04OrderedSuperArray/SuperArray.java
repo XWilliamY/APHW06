@@ -153,11 +153,19 @@ public class SuperArray{
     public void insertionSort(){
 	//start with a 'sorted' list, first value
 	//and then compare them
+	String thingtomove = "";
 	if(data.size() > 1){
 	    for(int i = 0; i < data.size()-1; i++){
 		//if they're equal move on if not
 		if((data.get(i).length()) > data.get(i+1).length()){
-
+		    //if the previous word is larger than the latter word
+		    //we'll stop at the latter word's length
+		    for(int a = 0; a < data.get(i+1).length()){
+			if(data.get(i).charAt(a) > data.get(i+1).charAt(a)){
+			    //if the first word is larger
+			    //we want to move the smaller, latter word
+			    thingtomove = data.get(i+1);
+			}
 		}
 		else{ // the next word is greater 
 
