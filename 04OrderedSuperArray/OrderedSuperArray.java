@@ -9,9 +9,9 @@ public class OrderedSuperArray extends SuperArray{
 	
 	System.out.println(A.toString());
     }
-
+    
     //if you add to the end/ beginning, swapping is all you need to do
-
+ 
     public void add(String e){
 	/**So here's how we're going to do add
 	 *First, we add it to the end. Swapping is better than inserting and making new arrays and what not.
@@ -58,4 +58,6 @@ public class OrderedSuperArray extends SuperArray{
 	    System.out.println(wordAfter);
 	}
     }
+
+
 }

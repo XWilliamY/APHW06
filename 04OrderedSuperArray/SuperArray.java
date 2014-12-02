@@ -146,5 +146,21 @@ public class SuperArray{
 	return A;
     }
 
+
+
+
+
+    public void insertionSort(){
+	//start with a 'sorted' list, first value
+	//and then compare them
+	if(data.size() > 1){
+	    for(int i = 0; i < data.size()-1; i++){
+		//if they're equal move on if not
+		if((data.get(i).length()) > data.get(i+1).length()){
+
+		}
+		else{ // the next word is greater 
+
+
     
 }
