@@ -1,0 +1,6 @@
+public class OrderedSuperArray extends SuperArray{
+
+    public static void main(String[]args){
+	OrderedSuperArray A = new OrderedSuperArray();
+	System.out.println(A.toString());
+    }
