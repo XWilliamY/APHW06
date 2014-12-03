@@ -138,5 +138,10 @@ public class SuperArray{
 	return A;
     }
 
+    public void insertionSort(){
+	//Let X = where the tested word is
+	//Let Y = where the sorted is
+	//X = (word at Y), Y = (word at X) 
+
     
 }

@@ -7,6 +7,9 @@ public class OrderedSuperArray extends SuperArray{
 	A.add("please");
 	A.add("hello");
 	A.add("A");
+	A.add("what");
+	A.add("nah");
+	A.add("banana");
 	System.out.println(A.toString());
     }
 
