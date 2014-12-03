@@ -1,16 +1,16 @@
 public class SuperArray{
-    private Object[]data;
-    private Object[]oldData;
+    private String[]data;
+    private String[]oldData;
     private int cNe, capacity; // current number of elements 
 
     public SuperArray(){
-	data = new Object[10]; // max capacity ten
+	data = new String[10]; // max capacity ten
 	cNe = 0; // it has 0 elements so far
 	capacity = 10;
     }
 
     public SuperArray(int capacity){
-	data = new Object[capacity]; // max capacity @ capacity
+	data = new String[capacity]; // max capacity @ capacity
 	cNe = 0; // no elements
 	this.capacity = capacity;
     }
@@ -24,7 +24,7 @@ public class SuperArray{
 	 return answer;
     }
 
-    public void add(Object e){
+    public void add(String e){
 	if(cNe < capacity){ //if we didn't meet the capacity yet
 	    data[cNe] = e; //add at 0, 1, 2, up to capacity - 1
 	    cNe += 1;
@@ -32,30 +32,30 @@ public class SuperArray{
 	else{
 	    capacity += 1; //increase capacity 
 	    // need to make a new data array with one more space at the end
-	    oldData = new Object[capacity];
+	    oldData = new String[capacity];
 	    for(int i = 0; i < cNe; i++){
 		oldData[i] = data[i]; //transfer all the data to new array
 	    }
 	    oldData[cNe] = e; //add the new element
-	    data = new Object[capacity]; //reset data array
+	    data = new String[capacity]; //reset data array
 	    data = oldData; //transfer back to data
 	    cNe ++;
 	}
     }
 
     //overloaded add 
-    public void add(int index, Object o){
+    public void add(int index, String o){
 	//if it's out of range, use the basic add function
 	if(index < 0 || index >= size()){
 	    add(o);
 	}
 	else{
 	    if(cNe + 1 <= capacity){
-		oldData = new Object[capacity]; //no need to increase size
+		oldData = new String[capacity]; //no need to increase size
 	    }
 	    else{
 		capacity ++;
-		oldData = new Object[capacity];
+		oldData = new String[capacity];
 	    }
 
 	//otherwise we'll inject it into the array at the index
@@ -69,19 +69,19 @@ public class SuperArray{
 		oldData[i+1] = data[i]; 
 	    }
 	}
-	data = new Object[capacity];
+	data = new String[capacity];
 	data = oldData;
     }
 
 
-    public Object remove(int index){
-	Object B;
+    public String remove(int index){
+	String B;
 	if(index < 0  || index >= size()){
 	    throw new IndexOutOfBoundsException();
 	}
 	else{
 	    // remove that element, move everything to the left 
-	    oldData = new Object[capacity];
+	    oldData = new String[capacity];
 	    for(int i = 0; i < index; i++){
 		oldData[i] = data[i]; // transfer from one to the other
 	    }
@@ -92,7 +92,7 @@ public class SuperArray{
 		oldData[i+1] = data[i];
 	    }
 	}
-	data = new Object[capacity];
+	data = new String[capacity];
 	data = oldData;
 	return B;
     }
@@ -102,21 +102,21 @@ public class SuperArray{
     }
 
     public void resize(int newCapacity){
-	oldData = new Object[newCapacity];// copy all values 
+	oldData = new String[newCapacity];// copy all values 
 	for(int i = 0; i < cNe; i++){
 	    oldData[i] = data[i];
 	}
-	data = new Object[newCapacity];
+	data = new String[newCapacity];
 	data = oldData;
 	capacity = newCapacity;
     }
 
     public void clear(){
-	data = new Object[capacity];
+	data = new String[capacity];
 	cNe = 0;
     }
 
-    public Object get(int index){
+    public String get(int index){
 	if(index < 0 || index >= size()){
 	    throw new IndexOutOfBoundsException();
 	}
@@ -126,8 +126,8 @@ public class SuperArray{
     }
 
     //overloaded set 
-    public Object set(int index, Object o){
-	Object A;
+    public String set(int index, String o){
+	String A;
 	if(index < 0  || index >= size()){
 	    throw new IndexOutOfBoundsException();
 	}
