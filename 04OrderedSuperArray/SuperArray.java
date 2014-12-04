@@ -96,7 +96,7 @@ public class SuperArray{
 
     public void insertionSort(){
 	String s = "";
-	if(size() >= 1){
+	if(size() > 1){
 	    for(int i = 1; i < size(); i++){
 		if(get(i).compareTo(get(i-1)) < 0){
 		    s = get(i);
@@ -125,9 +125,13 @@ public class SuperArray{
 
     public static void main(String[]args){
 	SuperArray A = new SuperArray();
-	A.add("Hello");
-	A.add("Goodbye");
-	System.out.println(A.find("Goodbye"));
+	A.add("thought");
+	A.add("sing");
+	A.add("root");
+
+	System.out.println(A);
+	A.insertionSort();
+	System.out.println(A);
     }
 
 
