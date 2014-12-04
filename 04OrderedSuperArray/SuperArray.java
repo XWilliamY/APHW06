@@ -111,15 +111,26 @@ public class SuperArray{
 	}
     }
 
+    public int find(String target){
+	int where = 0;
+	for(int i = 0; i < size(); i++){
+	    if(target.equals(get(i))){
+		where = i;
+		break;
+	    }
+	}
+	return where;
+    }
+
 
     public static void main(String[]args){
-	SuperArray array = new SuperArray();
-	array.add("what");
-	array.add("nah");
-	array.add("yeet");
-	array.add("swag");
-	System.out.println(array.toString());
-	array.insertionSort();
-	System.out.println(array.toString());
+	SuperArray A = new SuperArray();
+	A.add("Hello");
+	A.add("Goodbye");
+	System.out.println(A.find("Goodbye"));
     }
+
+
+
+
 }
