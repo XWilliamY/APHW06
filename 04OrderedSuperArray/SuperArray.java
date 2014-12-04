@@ -101,7 +101,7 @@ public class SuperArray{
 		if(get(i).compareTo(get(i-1)) < 0){
 		    s = get(i);
 		    int r = i;
-		    while(s.compareTo(get(r-1)) < 0){
+		    while(r> 0 &&s.compareTo(get(r-1)) < 0){
 			set(r,get(r-1));
 			r--;
 		    }
