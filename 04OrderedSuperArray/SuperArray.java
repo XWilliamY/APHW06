@@ -111,6 +111,27 @@ public class SuperArray{
 	}
     }
 
+    public void selectionSort(){
+	//find the smallest value n, bring it to a=0
+	//find the n+1 value, bring it to a+1
+	String smallestValue = get(0);
+	int where = 0;
+	String replaced = "";
+	for(int i = 0; i < size();i++){
+	    for(int a = 0; a < size(); a++){
+		if(get(a).compareTo(smallestValue) < 0){
+		    smallestValue = get(a);
+		    where = a;
+		    replaced = get(i);
+		    set(i, smallestValue);
+		    set(where, replaced);
+		} //the new smallestValue will be the one there
+	    }
+	}
+    }
+
+
+
     public int find(String target){
 	int where = 0;
 	for(int i = 0; i < size(); i++){
@@ -125,12 +146,12 @@ public class SuperArray{
 
     public static void main(String[]args){
 	SuperArray A = new SuperArray();
-	A.add("thought");
-	A.add("sing");
-	A.add("root");
-
+	A.add("d");
+	A.add("c");
+	A.add("b");
+	A.add("a");
 	System.out.println(A);
-	A.insertionSort();
+	A.selectionSort();
 	System.out.println(A);
     }
 
