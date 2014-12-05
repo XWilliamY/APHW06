@@ -118,7 +118,7 @@ public class SuperArray{
 	String replaced = "";
 	int where = 0;
 	for(int i = 0; i < size();i++){
-	    for(int a = 0; a < size(); a++){
+	    for(int a = i; a < size(); a++){
 		if(get(a).compareTo(smallestValue) < 0){
 		    smallestValue = get(a);
 		    replaced = get(i);
