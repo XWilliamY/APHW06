@@ -115,18 +115,18 @@ public class SuperArray{
 	//find the smallest value n, bring it to a=0
 	//find the n+1 value, bring it to a+1
 	String smallestValue = get(0);
-	int where = 0;
 	String replaced = "";
+	int where = 0;
 	for(int i = 0; i < size();i++){
 	    for(int a = 0; a < size(); a++){
 		if(get(a).compareTo(smallestValue) < 0){
 		    smallestValue = get(a);
-		    where = a;
 		    replaced = get(i);
-		    set(i, smallestValue);
-		    set(where, replaced);
+		    where = a;
 		} //the new smallestValue will be the one there
 	    }
+	    set(i, smallestValue);
+	    set(where, replaced);
 	}
     }
 
