@@ -117,6 +117,7 @@ public class SuperArray{
 	String wordBegin;
 	int whereToSwap;
 	for(int i = 0; i < size();i++){
+	    //such that we don't get any 'you didn't initialize'
 	    wordToSwap = get(i);
 	    wordBegin= get(i);
 	    whereToSwap = i;
@@ -127,11 +128,19 @@ public class SuperArray{
 		    wordToSwap = get(a);
 		}
 	    }
-	    wordBegin = get(i);
-	    set(whereToSwap, wordBegin);
+	    set(whereToSwap, get(i));
 	    set(i, wordToSwap);
 	}
     }
+
+    //0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+    //[hello, goodbye, yes, no, apple, therefore]
+    //hello switches with apple 
+    //[apple, goodbye, yes, no, hello, therefore]
+    //[apple, goodbye, yes, no, hellow, therefore]
+    //[apple, goodbye, hello, no, yes, therefore]
+    //[apple, goodbye, hello, no, therefore, yes]
+
 
 
 
@@ -151,11 +160,13 @@ public class SuperArray{
 
     public static void main(String[]args){	
 	SuperArray A = new SuperArray();
-	A.add("public");
-	A.add("static");
-	A.add("void");
-	A.add("main");
-	A.add("args");
+	A.add("zombie");
+	A.add("apple");
+	A.add("yellow");
+	A.add("banana");
+	A.add("mezzo");
+	A.add("soprano");
+	System.out.println(A);
 	A.selectionSort();
 	System.out.println(A);
     }
