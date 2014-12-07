@@ -117,16 +117,24 @@ public class SuperArray{
 	String smallestValue = get(0);
 	String replaced = "";
 	int where = 0;
-	for(int i = 0; i < size();i++){
-	    for(int a = i; a < size(); a++){
+	for(int i = 0; i < size();i++){//0, 1, 2, 3, 4
+	    System.out.println("this is i");
+	    System.out.println(i);
+	    for(int a = i; a < size(); a++){//[00][01][02][03][04]
 		if(get(a).compareTo(smallestValue) < 0){
 		    smallestValue = get(a);
 		    replaced = get(i);
+		    System.out.println(replaced);
 		    where = a;
+		    System.out.println("this is a");
+		    System.out.println(a);
+		    //set(i, smallestValue);
+		    //set(where, replaced);
+		    System.out.println(toString());
 		} //the new smallestValue will be the one there
+		set(where, replaced);
+		set(i, smallestValue);
 	    }
-	    set(i, smallestValue);
-	    set(where, replaced);
 	}
     }
 
@@ -146,12 +154,10 @@ public class SuperArray{
 
     public static void main(String[]args){
 	SuperArray A = new SuperArray();
-	A.add("d");
-	A.add("c");
-	A.add("b");
-	A.add("a");
-	System.out.println(A);
-	A.selectionSort();
+	for(int i = 0; i < 100000; i++){
+	    A.add("" + i);
+	}
+	A.insertionSort();
 	System.out.println(A);
     }
 
