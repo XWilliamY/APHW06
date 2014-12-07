@@ -120,30 +120,22 @@ public class SuperArray{
     //[apple, goodbye, hello, no, therefore, yes]
 
     public void selectionSort(){
-	int go, place;
-	String wordToSwap;
-	go = 0;
-	for(int i = 0; i < size() ; i++){
-	    //0;1;2;3;4;5;6;7;8;9;
-	    for(int a = i+1; a < size(); a ++){
-		//0/1, 2, 3, 4, 5, 6, 7, 8, 9
-		//0, 1/2, 3, 4, 5, 6, 7, 8, 9
-		if(get(a).compareTo(get(i)) < 0){
-		    //if get(1) < get(0)
-		    //a is the place to swap 
-		    //get(a) is the word you are swapping 
-		    place = a;
-		    wordToSwap = get(a);
-		    go = 1;
+	String minValue;
+	int min = 0;
+	for(int i = 0; i < size(); i++){
+	    minValue = data[i];
+	    min = i;
+	    for(int a = i; a < size(); a++){
+		if(get(a).compareTo(minValue) < 0){
+		    minValue = get(a);
+		    min = a;
 		}
 	    }
-	    if(go != 0){
-		set(place, get(i));
-		set(i, wordToSwap);
-	    }
+	    set(min, get(i));
+	    set(i, minValue);
 	}
-    }
 
+    }
 
 
 
