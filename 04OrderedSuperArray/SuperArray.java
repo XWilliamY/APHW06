@@ -111,28 +111,6 @@ public class SuperArray{
 	}
     }
 
-
-    public void selectionSort(){
-	String wordToSwap;
-	String wordBegin;
-	int whereToSwap;
-	for(int i = 0; i < size();i++){
-	    //such that we don't get any 'you didn't initialize'
-	    wordToSwap = get(i);
-	    wordBegin= get(i);
-	    whereToSwap = i;
-	    //we will always start at i
-	    for(int a = i+1; a < size(); a++){
-		if(get(a).compareTo(get(i)) < 0){
-		    whereToSwap = a;
-		    wordToSwap = get(a);
-		}
-	    }
-	    set(whereToSwap, get(i));
-	    set(i, wordToSwap);
-	}
-    }
-
     //0, 1, 2, 3, 4, 5, 6, 7, 8, 9
     //[hello, goodbye, yes, no, apple, therefore]
     //hello switches with apple 
@@ -141,7 +119,30 @@ public class SuperArray{
     //[apple, goodbye, hello, no, yes, therefore]
     //[apple, goodbye, hello, no, therefore, yes]
 
-
+    public void selectionSort(){
+	int go, place;
+	String wordToSwap;
+	go = 0;
+	for(int i = 0; i < size() ; i++){
+	    //0;1;2;3;4;5;6;7;8;9;
+	    for(int a = i+1; a < size(); a ++){
+		//0/1, 2, 3, 4, 5, 6, 7, 8, 9
+		//0, 1/2, 3, 4, 5, 6, 7, 8, 9
+		if(get(a).compareTo(get(i)) < 0){
+		    //if get(1) < get(0)
+		    //a is the place to swap 
+		    //get(a) is the word you are swapping 
+		    place = a;
+		    wordToSwap = get(a);
+		    go = 1;
+		}
+	    }
+	    if(go != 0){
+		set(place, get(i));
+		set(i, wordToSwap);
+	    }
+	}
+    }
 
 
 
