@@ -120,19 +120,19 @@ public class SuperArray{
     //[apple, goodbye, hello, no, therefore, yes]
 
     public void selectionSort(){
-	String minValue;
+	String smallestWord;
 	int min = 0;
 	for(int i = 0; i < size(); i++){
-	    minValue = data[i];
+	    smallestWord = get(i);
 	    min = i;
 	    for(int a = i; a < size(); a++){
-		if(get(a).compareTo(minValue) < 0){
-		    minValue = get(a);
+		if(get(a).compareTo(smallestWord) < 0){
+		    smallestWord = get(a);
 		    min = a;
 		}
 	    }
 	    set(min, get(i));
-	    set(i, minValue);
+	    set(i, smallestWord);
 	}
 
     }
@@ -153,12 +153,9 @@ public class SuperArray{
 
     public static void main(String[]args){	
 	SuperArray A = new SuperArray();
-	A.add("zombie");
-	A.add("apple");
-	A.add("yellow");
-	A.add("banana");
-	A.add("mezzo");
-	A.add("soprano");
+	for(int i = 0; i < 100000; i++){
+	    A.add("" + i);
+	}
 	System.out.println(A);
 	A.selectionSort();
 	System.out.println(A);
