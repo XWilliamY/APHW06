@@ -111,57 +111,31 @@ public class SuperArray{
 	}
     }
 
-    /*
 
     public void selectionSort(){
-	//find the smallest value n, bring it to a=0
-	//find the n+1 value, bring it to a+1
-	String smallestValue = get(0);
-	String replaced = "";
-	int where = 0;
-	for(int i = 0; i < size();i++){//0, 1, 2, 3, 4
-	    for(int a = i; a < size(); a++){//[00][01][02][03][04]
-		if(get(a).compareTo(smallestValue) < 0){
-		    smallestValue = get(a);
-		    replaced = get(i);
-		    System.out.println(replaced);
-		    where = a;
-		    //set(i, smallestValue);
-		    //set(where, replaced);
-		} //the new smallestValue will be the one there
-		set(where, replaced);
-		set(i, smallestValue);
-	    }
-	}
-    }
-
-*/
-
-    public void selectionSort(){
-	//swap 0 with max n
-	//swap 1 with max n - 1
-	//swap 2 with max - 2
-	//swap 3 with max - 3
-	//so on and so forth 
-
-	String stringCompared;
-	String replaced = "";
-	int where=0;
-	for(int i = 0 ; i < size() ; i++){
-	    stringCompared = get(i); 
-	    for(int a = i+1; a < size() ; a++){
-		if(get(a).compareTo(stringCompared) < 0){
-		    //word at a is smaller than stringCompared
-		    //swap word stringCompared with a
-		    where = a; //where the stringCompared will go 
-		    //i is where the get(a) will go 
-		    replaced = get(a);
+	String wordToSwap;
+	String wordBegin;
+	int whereToSwap;
+	for(int i = 0; i < size();i++){
+	    wordToSwap = get(i);
+	    wordBegin= get(i);
+	    whereToSwap = i;
+	    //we will always start at i
+	    for(int a = i+1; a < size(); a++){
+		if(get(a).compareTo(get(i)) < 0){
+		    whereToSwap = a;
+		    wordToSwap = get(a);
 		}
-		set(i, replaced);
-		set(where, stringCompared);
 	    }
+	    wordBegin = get(i);
+	    set(whereToSwap, wordBegin);
+	    set(i, wordToSwap);
 	}
     }
+
+
+
+
 
     public int find(String target){
 	int where = 0;
@@ -175,15 +149,13 @@ public class SuperArray{
     }
 
 
-    public static void main(String[]args){
+    public static void main(String[]args){	
 	SuperArray A = new SuperArray();
-	A.add("B");
-	A.add("C");
-	A.add("A");
-	A.add("z");
-	A.add("y");
-	A.add("yes");
-	A.add("apple");
+	A.add("public");
+	A.add("static");
+	A.add("void");
+	A.add("main");
+	A.add("args");
 	A.selectionSort();
 	System.out.println(A);
     }
