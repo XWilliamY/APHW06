@@ -7,7 +7,7 @@ public class convert extends JFrame implements ActionListener{
     private Container pane;
     private JButton Celsius, Fahrenheit;
     private JLabel l;
-    private JTextField t;
+    private JTextField text;
     private Container buttons;
     private Container textyStuff;
     private JCheckBox box;
@@ -24,7 +24,7 @@ public class convert extends JFrame implements ActionListener{
 	Celsius = new JButton("Convert to C");
 	Fahrenheit = new JButton("Convert to F");
 	l = new JLabel("Convert a value to Celsius or Fahrenheit:", null, JLabel.CENTER);
-	t = new JTextField(12);
+	text = new JTextField(12);
 
 	Celsius.setActionCommand("Convert C");
 	Celsius.addActionListener(this);
@@ -39,17 +39,28 @@ public class convert extends JFrame implements ActionListener{
 	textyStuff = new Container();
 	textyStuff.setLayout(new FlowLayout());
 	textyStuff.add(l);
-	textyStuff.add(t);
+	textyStuff.add(text);
 
 	pane.add(textyStuff);
 	pane.add(buttons);
     }
 
 public void actionPerformed(ActionEvent e){
-	String s = e.getActionCommand();
-	//if action = celsius, do this
-
-	//else, if action is this, convert to fahrenheit
+	String action = e.getActionCommand();
+	if(action.equals("Convert C")){
+		String s = text.getText();
+		int temperature = Integer.parseInt(s);
+		temperature = (temperature - 32) * (9/5);
+	        s = Integer.toString(temperature);
+		text.setText(s);
+	}
+	if(action.equals("Convert F")){
+	    String s = text.getText();
+	    int temperature = Integer.parseInt(s);
+	    temperature = temperature * (9/5) + 32;
+	    s = Integer.toString(temperature);
+	    text.setText(s);
+	}
     }
 
 
