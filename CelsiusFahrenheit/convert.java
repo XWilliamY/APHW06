@@ -1,8 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 
-public class convert extends JFrame{
+public class convert extends JFrame implements ActionListener{
     private Container pane;
     private JButton Celsius, Fahrenheit;
     private JLabel l;
@@ -22,9 +23,19 @@ public class convert extends JFrame{
 	pane.add(Celsius);
 	pane.add(Fahrenheit);
 	pane.add(t);
+	Celsius.setActionCommand("Convert C");
+	Celsius.addActionListener(this);
+	Fahrenheit.setActionCommand("Convert F");
+	Fahrenheit.addActionListener(this);
     }
 
 
+
+
+    public void actionPerformed(ActionEvent e){
+	String s = e.getActionCommand();
+	System.out.println(s);
+    }
 
 
     public static void main(String[]args){
