@@ -137,6 +137,29 @@ public class SuperArray{
 
     }
 
+    public void bubbleSort(){
+	for(int i = 0; i < size()-1;i++){
+	    String originalO = get(i);
+	    int newO = get(i+1);
+	    int originalIndex = i;
+	    int newIndex = i+1;
+	    Boolean go = true;
+	    while(go){
+		if(originalO.compareTo(newO) > 0){
+		    set(newIndex, originalO);
+		    set(originalIndex, newO);
+		    newIndex ++;
+		    newO = get(newIndex);
+		}
+		else{
+		    go = false;
+		}
+	    }
+	}
+    }
+
+
+
 
 
     public int find(String target){
@@ -163,7 +186,7 @@ public class SuperArray{
 	A.add("this");
 	A.add("does");
 	System.out.println(A);
-	A.selectionSort();
+	A.bubbleSort();
 	System.out.println(A);
     }
 
