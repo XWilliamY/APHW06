@@ -8,8 +8,8 @@ public class sorts extends SuperArray{
 	//7, 0, 1, 2, 3, 8, 9
 	//kind of linear search 
 	for(int i = 0; i < super.size()-1; i++){
-	    int originalO = super.get(i);
-	    int newO = super.get(i+1);
+	    String originalO = super.get(i);
+	    String newO = super.get(i+1);
 	    int originalIndex = i;
 	    int newIndex = i+1;
 	    Boolean go = true;

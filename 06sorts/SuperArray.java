@@ -138,26 +138,21 @@ public class SuperArray{
     }
 
     public void bubbleSort(){
-	for(int i = 0; i < size()-1;i++){
-	    String originalO = get(i);
-	    int newO = get(i+1);
-	    int originalIndex = i;
-	    int newIndex = i+1;
-	    Boolean go = true;
-	    while(go){
-		if(originalO.compareTo(newO) > 0){
-		    set(newIndex, originalO);
-		    set(originalIndex, newO);
-		    newIndex ++;
-		    newO = get(newIndex);
-		}
-		else{
-		    go = false;
+	// two fors
+	for(int i  = 0; i < size(); i++){
+	    //9,8,7,6,5,4,3 -> seven 
+	    //9 will go through all of the list
+	    //8,7,6,5,4,3,|9 -> six but still starting at 0
+	    //once 'end' matches size() = |3,4,5,6,7,8,9
+	    for(int a = i+1; a < size(); a++){
+		if(get(i).compareTo(get(a)) > 0){
+		    String original = get(i);
+		    set(i, get(a));
+		    set(a, original);
 		}
 	    }
 	}
     }
-
 
 
 
@@ -176,15 +171,13 @@ public class SuperArray{
 
     public static void main(String[]args){	
 	SuperArray A = new SuperArray();
-	A.add("zombies");
-	A.add("apple");
-	A.add("banana");
-	A.add("archaic");
-	A.add("crazy");
-	A.add("yes");
-	A.add("work");
-	A.add("this");
-	A.add("does");
+	A.add("9");
+	A.add("8");
+	A.add("7");
+	A.add("6");
+	A.add("5");
+	A.add("4");
+	A.add("3");
 	System.out.println(A);
 	A.bubbleSort();
 	System.out.println(A);
