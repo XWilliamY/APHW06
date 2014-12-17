@@ -111,14 +111,6 @@ public class SuperArray{
 	}
     }
 
-    //0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-    //[hello, goodbye, yes, no, apple, therefore]
-    //hello switches with apple 
-    //[apple, goodbye, yes, no, hello, therefore]
-    //[apple, goodbye, yes, no, hellow, therefore]
-    //[apple, goodbye, hello, no, yes, therefore]
-    //[apple, goodbye, hello, no, therefore, yes]
-
     public void selectionSort(){
 	String smallestWord;
 	int min = 0;
