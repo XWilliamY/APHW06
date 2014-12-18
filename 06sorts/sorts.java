@@ -16,4 +16,58 @@ public class sorts extends SuperArray{
 	B.bubbleSort();
 	System.out.println(B.toString());
     }
+
+    public void insertionSort(){
+	String s = "";
+	if(size() > 1){
+	    for(int i = 1; i < size(); i++){
+		if(get(i).compareTo(get(i-1)) < 0){
+		    s = get(i);
+		    int r = i;
+		    while(r> 0 &&s.compareTo(get(r-1)) < 0){
+			set(r,get(r-1));
+			r--;
+		    }
+		    set(r,s);
+		}
+	    }
+	}
+    }
+
+    public void selectionSort(){
+	String smallestWord;
+	int min = 0;
+	for(int i = 0; i < size(); i++){
+	    smallestWord = get(i);
+	    min = i;
+	    for(int a = i; a < size(); a++){
+		if(get(a).compareTo(smallestWord) < 0){
+		    smallestWord = get(a);
+		    min = a;
+		}
+	    }
+	    set(min, get(i));
+	    set(i, smallestWord);
+	}
+
+    }
+
+    public void bubbleSort(){
+	// two fors
+	for(int i  = 0; i < size(); i++){
+	    //9,8,7,6,5,4,3 -> seven 
+	    //9 will go through all of the list
+	    //8,7,6,5,4,3,|9 -> six but still starting at 0
+	    //once 'end' matches size() = |3,4,5,6,7,8,9
+	    for(int a = i+1; a < size(); a++){
+		if(get(i).compareTo(get(a)) > 0){
+		    String original = get(i);
+		    set(i, get(a));
+		    set(a, original);
+		}
+	    }
+	}
+    }
+
+
 }
