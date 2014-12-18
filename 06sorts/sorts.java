@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class sorts extends SuperArray{
 
     public static void main(String[]args){
@@ -16,6 +18,15 @@ public class sorts extends SuperArray{
 	B.bubbleSort();
 	System.out.println(B.toString());
     }
+
+    public static String name(){
+	return "Yang,William";
+    }
+
+    public static int period(){
+	return 6;
+    }
+
 
     public void insertionSort(){
 	String s = "";
@@ -69,5 +80,18 @@ public class sorts extends SuperArray{
 	}
     }
 
+    public void radix(int[]c){
+	//array of length ten
+	//will have Arraylists inside it
+	ArrayList<ArrayList<Integer>> digits = new ArrayList<ArrayList<Integer>>(10);
+	for(int i = 0; i < digits.size();i++){
+	    ArrayList<Integer> vertical = new ArrayList<Integer>();
+	    digits.add(i, vertical);
+	}
+	for(int i = 0; i < c.size();i++){
+	    System.out.println(i);
+	}
 
+
+    }
 }
